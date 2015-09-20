@@ -1,0 +1,2 @@
+module CreatuersHelper
+end
