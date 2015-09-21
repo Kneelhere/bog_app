@@ -27,4 +27,15 @@ class CreaturesController < ApplicationController
 		render :edit
 	end
 
+	def update
+		creature_id = params[:id]
+		creature = Creature.find(creature_id)
+		#get updated data
+		updated_attributes = params.require(:create).permit(:name, :description)
+		#updates creature
+		creature.updated_attributes(updated_attributes)
+		#redirect
+		redirect_to "/creatures/#{creature_id}"
+	end
+
 end
