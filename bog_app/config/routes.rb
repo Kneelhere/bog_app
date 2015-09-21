@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root to: 'creatures#index'
-  get '/creatures', to: "creatures#index"
-  get '/creatures/new', to: 'creatures#new'
+  get '/creatures', to: "creatures#index", as: 'creatures'
+  get '/creatures/new', to: 'creatures#new', as: 'creatures'
 
-  get 'creatures/:id', to: 'creatures#create'
+  get 'creatures/:id', to: 'creatures#create', as: 'creatures'
+  get '/creatures/:id/edit', to: 'creatures#show', as: 'edit_creature'
   post '/creatures', to: 'creatures#create'
 end
